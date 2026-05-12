@@ -20,9 +20,11 @@ const corsOptions = {
     "https://samperfume-frontend-jw8dpee80-aseelshaheens-projects.vercel.app"
   ],
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 };
 
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 
 // ── Security ──────────────────────────────────────────────────────────────────
