@@ -29,8 +29,6 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 }));
 
-app.use(cors(corsOptions));
-
 
 // ── Security ──────────────────────────────────────────────────────────────────
 app.use(helmet({
