@@ -14,21 +14,14 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    const allowedOrigins = [
-      "http://localhost:5173",
-      "http://127.0.0.1:5173",
-      "https://samperfume-frontend.vercel.app"
-    ];
-
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: [
+    "http://localhost:5173",
+    "https://samperfume-frontend.vercel.app",
+    "https://samperfume-frontend-jw8dpee80-aseelshaheens-projects.vercel.app"
+  ],
   credentials: true,
 };
+
 app.use(cors(corsOptions));
 
 
