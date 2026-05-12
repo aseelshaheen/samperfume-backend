@@ -14,13 +14,14 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: function(origin, callback) {
-    if (
-      !origin ||
-      origin.includes("localhost") ||
-      origin.includes("127.0.0.1") ||
-      origin.startsWith("http://192.168.")
-    ) {
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      "http://localhost:5173",
+      "http://127.0.0.1:5173",
+      "https://samperfume-frontend.vercel.app"
+    ];
+
+    if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
