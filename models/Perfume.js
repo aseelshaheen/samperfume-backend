@@ -32,10 +32,10 @@ const perfumeSchema = new mongoose.Schema(
     },
 
     nameAr: {
-  type: String,
-  trim: true,
-  default: "",
-},
+      type: String,
+      trim: true,
+      default: "",
+    },
 
     brand: {
       type: String,
@@ -83,9 +83,10 @@ const perfumeSchema = new mongoose.Schema(
     },
 
     fullBottle: {
-      price:   { type: Number },
-      stock:   { type: Number, default: 0 },
-      size_ml: { type: Number },
+      price:          { type: Number },
+      wholesalePrice: { type: Number },   // ← سعر الجملة
+      stock:          { type: Number, default: 0 },
+      size_ml:        { type: Number },
     },
 
     taqseem: {
@@ -129,7 +130,6 @@ perfumeSchema.virtual("fullBottle.finalPrice").get(function () {
 });
 
 // ── HOOK: auto-generate slug ──────────────────────────────────────────────────
-// Using async (no next parameter) — Mongoose uses the returned Promise automatically
 perfumeSchema.pre("save", async function () {
   if (this.isModified("name") || this.isModified("brand") || !this.slug) {
     const base = `${this.brand || ""}-${this.name || ""}`;
