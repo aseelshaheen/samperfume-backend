@@ -85,6 +85,7 @@ fragranceFamily: {
       wholesalePrice: { type: Number },   // ← سعر الجملة
       stock:          { type: Number, default: 0 },
       size_ml:        { type: Number },
+      discountedPrice:  { type: Number },
     },
 
     taqseem: {
