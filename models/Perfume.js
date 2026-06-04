@@ -55,9 +55,17 @@ const perfumeSchema = new mongoose.Schema(
       required: true,
     },
 
+
 fragranceFamily: {
   type: [String],
-  enum: ["oud","woody","floral","oriental","fresh","citrus","aquatic","gourmand","chypre","fougere","Fruity","Musk","Spicy","other"],
+  enum: [
+    "citrus","aquatic","green","fruity",
+    "floral",
+    "ambery","spicy","gourmand",
+    "woody","mossy_woods","leather","fougere",
+    "oud","musk","taif_rose",
+    "other"
+  ],
   default: [],
 },
 
